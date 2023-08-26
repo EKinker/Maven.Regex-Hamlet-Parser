@@ -57,7 +57,7 @@ public class HamletParser {
     }
 
     public int findName(String name){
-        Pattern pattern = Pattern.compile("\\bleon\\b", Pattern.CASE_INSENSITIVE);
+        Pattern pattern = Pattern.compile("\\b"+name+"\\b", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(hamletData);
         int count = 0;
         while (matcher.find()) count++;
@@ -69,5 +69,11 @@ public class HamletParser {
         Matcher matcher = pattern.matcher(hamletData);
 
         hamletData = matcher.replaceAll("Leon");
+    }
+
+    public void changeAToB(String nameFrom, String nameTo) {
+        Pattern pattern = Pattern.compile("\\b"+nameFrom+"\\b", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(hamletData);
+        hamletData = matcher.replaceAll(nameTo);
     }
 }

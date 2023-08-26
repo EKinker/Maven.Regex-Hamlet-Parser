@@ -24,6 +24,12 @@ public class HamletParserTest {
 
     @Test
     public void testChangeHoratioToTariq() {
+        hamletParser.changeAToB("horatio", "Tariq");
+        int expected = 0;
+        int actual = hamletParser.findName("horatio");
+
+        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(158, hamletParser.findName("tariq"));
     }
 
     @Test
