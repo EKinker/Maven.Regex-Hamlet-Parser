@@ -55,4 +55,19 @@ public class HamletParser {
 
         return count;
     }
+
+    public int findName(String name){
+        Pattern pattern = Pattern.compile("\\bleon\\b", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(hamletData);
+        int count = 0;
+        while (matcher.find()) count++;
+        return count;
+    }
+
+    public void changeHamletToLeon() {
+        Pattern pattern = Pattern.compile("hamlet", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(hamletData);
+
+        hamletData = matcher.replaceAll("Leon");
+    }
 }
